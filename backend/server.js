@@ -507,6 +507,6 @@ app.get("/", (_req, res) => {
   res.sendFile(path.join(rootDir, "index.html"));
 });
 
-app.listen(port, "127.0.0.1", () => {
-  console.log(`Voice emotion backend listening on http://127.0.0.1:${port}`);
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Voice emotion backend listening on http://0.0.0.0:${port}`);
 });

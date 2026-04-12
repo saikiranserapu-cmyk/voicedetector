@@ -141,7 +141,8 @@ export default function Home() {
     const formData = new FormData()
     formData.append("audio", file)
     try {
-      const res = await fetch("http://127.0.0.1:3000/api/predict", {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:3000"
+      const res = await fetch(`${baseUrl}/api/predict`, {
         method: "POST",
         body: formData,
       })
