@@ -1,0 +1,2 @@
+"""Voice emotion detection package."""
+
