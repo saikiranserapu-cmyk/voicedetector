@@ -5,10 +5,10 @@
   "main": "backend/server.js",
   "type": "commonjs",
   "scripts": {
-    "dev:backend": "node backend/server.js",
+    "dev:backend": "node --dns-result-order=ipv4first backend/server.js",
     "dev:frontend": "cd frontend && npm run dev -- -p 3001",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "start": "node backend/server.js",
+    "start": "node --dns-result-order=ipv4first backend/server.js",
     "check": "node --check backend/server.js"
   },
   "keywords": [
