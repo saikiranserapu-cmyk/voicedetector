@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Voice emotion detection — Next.js frontend + Express backend",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev:backend": "node --dns-result-order=ipv4first backend/server.js",
     "dev:frontend": "next dev -p 3001",
