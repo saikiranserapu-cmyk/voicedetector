@@ -1,16 +1,20 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const fs = require("fs");
-const path = require("path");
-const multer = require("multer");
-const { createClient } = require("@supabase/supabase-js");
-const { HfInference } = require("@huggingface/inference");
-const ffmpeg = require("fluent-ffmpeg");
-const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
-ffmpeg.setFfmpegPath(ffmpegPath);
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import multer from "multer";
+import { createClient } from "@supabase/supabase-js";
+import { HfInference } from "@huggingface/inference";
+import ffmpeg from "fluent-ffmpeg";
+import ffmpegInstaller from "@ffmpeg-installer/ffmpeg";
+ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const rootDir = path.resolve(__dirname, "..");
