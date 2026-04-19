@@ -30,7 +30,16 @@ const HF_MODEL = "superb/wav2vec2-base-superb-er"; // Ultra-reliable model that 
 fs.mkdirSync(uploadsDir, { recursive: true });
 fs.mkdirSync(outputsDir, { recursive: true });
 
-app.use(cors());
+// CORS: in production set FRONTEND_URL to your Vercel domain (e.g. https://your-app.vercel.app)
+// In dev it allows localhost:3001 as well as any origin without credentials.
+const allowedOrigins = process.env.FRONTEND_URL
+  ? [process.env.FRONTEND_URL, "http://localhost:3001"]
+  : true; // true = allow all origins (open in dev)
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/outputs", express.static(outputsDir));
