@@ -43,9 +43,6 @@ export default function Home() {
   const audioChunksRef = useRef<Blob[]>([])
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    if (recordingTime >= 5 && isRecording) stopRecording()
-  }, [recordingTime, isRecording])
 
   // ── Emoji cursor based on detected emotion ──
   const EMOTION_EMOJIS: Record<string, string> = {
@@ -249,9 +246,9 @@ export default function Home() {
                 {isRecording ? (
                   <div className="flex flex-col items-center gap-1">
                     <span className="font-mono text-3xl font-bold text-yellow-300 tabular-nums">
-                      00:0{recordingTime}
+                      {String(Math.floor(recordingTime / 60)).padStart(2, "0")}:{String(recordingTime % 60).padStart(2, "0")}
                     </span>
-                    <span className="text-white/40 text-xs">auto-stops at 5s</span>
+                    <span className="text-white/40 text-xs">click stop when done</span>
                   </div>
                 ) : (
                   <p className="text-white/40 text-sm">Click the mic to record · or upload a file</p>
