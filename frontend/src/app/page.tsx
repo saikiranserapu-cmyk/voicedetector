@@ -141,10 +141,8 @@ export default function Home() {
     const formData = new FormData()
     formData.append("audio", file)
     try {
-      // Use explicit backend URL if set, otherwise fall back to the
-      // Next.js rewrite proxy (/api/* → Railway) defined in next.config.ts
-      const apiBase = process.env.NEXT_PUBLIC_BACKEND_URL ?? ""
-      const res = await fetch(`${apiBase}/api/predict`, {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:3000"
+      const res = await fetch(`${baseUrl}/api/predict`, {
         method: "POST",
         body: formData,
       })
