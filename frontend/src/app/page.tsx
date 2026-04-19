@@ -141,8 +141,9 @@ export default function Home() {
     const formData = new FormData()
     formData.append("audio", file)
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? ""
-      const res = await fetch(`${baseUrl}/api/predict`, {
+      // Use relative URL — Next.js rewrites proxy /api/* to the backend
+      // (localhost:3000 in dev, Railway URL in production via NEXT_PUBLIC_BACKEND_URL)
+      const res = await fetch(`/api/predict`, {
         method: "POST",
         body: formData,
       })
