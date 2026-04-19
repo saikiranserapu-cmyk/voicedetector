@@ -1,2 +1,8 @@
 [phases.setup]
 aptPkgs = ["ffmpeg"]
+
+[phases.build]
+cmds = []
+
+[start]
+cmd = "node --dns-result-order=ipv4first backend/server.js"
