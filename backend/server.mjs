@@ -159,7 +159,7 @@ async function classifyEmotionWithGroq(transcript) {
       messages: [
         {
           role: "system",
-          content: `Classify dominant emotion into one label from: ${EMOTIONS.join(", ")}. Return JSON with keys label and confidence.`,
+          content: `You are a multilingual emotion classifier. The user will provide a speech transcript in ANY language (English, Hindi, Telugu, Spanish, French, Arabic, Chinese, etc.). Regardless of the language, classify the dominant emotion into exactly one of: ${EMOTIONS.join(", ")}. Return a JSON object with keys "label" (string) and "confidence" (number between 0 and 1). Do not translate, just classify the emotion.`,
         },
         {
           role: "user",
