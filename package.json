@@ -4,11 +4,11 @@
   "description": "Voice emotion detection — Next.js frontend + Express backend",
   "private": true,
   "scripts": {
-    "dev:backend": "node --dns-result-order=ipv4first backend/server.cjs",
+    "dev:backend": "node --dns-result-order=ipv4first backend/server.mjs",
     "dev:frontend": "next dev -p 3001",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build": "next build",
-    "start": "node --dns-result-order=ipv4first backend/server.cjs",
+    "start": "node --dns-result-order=ipv4first backend/server.mjs",
     "lint": "eslint"
   },
   "dependencies": {

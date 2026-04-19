@@ -5,4 +5,4 @@ aptPkgs = ["ffmpeg"]
 cmds = []
 
 [start]
-cmd = "node --dns-result-order=ipv4first backend/server.cjs"
+cmd = "node --dns-result-order=ipv4first backend/server.mjs"
